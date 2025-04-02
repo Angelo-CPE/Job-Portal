@@ -9,6 +9,7 @@ import NavLink from '../Components/NavLink.vue';
         <nav class="p-6 mx-auto max-w-screen-lg flex items-center justify-between">
             <NavLink routeName="home" componentName="Home">Home</NavLink>
             <div class="flex items-center space-x-6">
+                <NavLink routeName="login" componentName="Auth/Login">Login</NavLink>
                 <NavLink routeName="register" componentName="Auth/Register">Register</NavLink>
                 <button 
                     @click="switchTheme"
