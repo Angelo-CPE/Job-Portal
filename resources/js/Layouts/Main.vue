@@ -31,7 +31,14 @@ const show = ref(false)
                         v-show="show"
                         @click="show=false"
                         class="absolute z-50 top-16 right-0 bg-slate-800 text-white rounded-lg border-slate border overflow-hidden w-40">
-                        <Link class="block w-full px-6 py-3 hover:bg-slate-700 text-left">Dashboard</Link>
+                        <Link 
+                            :href="route('profile.edit')"
+                            class="block w-full px-6 py-3 hover:bg-slate-700 text-left">Profile
+                        </Link>
+                        <Link 
+                            :href="route('dashboard')"
+                            class="block w-full px-6 py-3 hover:bg-slate-700 text-left">Dashboard
+                        </Link>
                         <Link
                             :href="route('logout')"
                             method="post"
