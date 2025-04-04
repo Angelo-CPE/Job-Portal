@@ -14,7 +14,10 @@ class ListingController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Home');
+        $listings = Listing::with('user')->latest()->paginate(6);
+        return Inertia::render('Home', [
+            'listings'=>$listings
+        ]);
     }
 
     /**
