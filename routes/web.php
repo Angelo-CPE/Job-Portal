@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function(){
@@ -16,5 +18,15 @@ Route::middleware(['auth'])->group(function(){
 
 Route::get('/', [ListingController::class, 'index'])->name('home');
 Route::resource('listing', ListingController::class)->except('index');
+
+Route::middleware(['auth', 'verified', Admin::class])
+    ->controller(AdminController::class)
+    ->group(function(){
+    Route::get('/admin', 'index')->name('admin.index');
+    Route::get('/users/{user}', 'show')->name('user.show');
+    Route::put('/admin/{user}/role', 'role')->name('admin.role');
+    Route::put('/listing/{listing}/approve', 'approve')->name('admin.approve');
+});
+
 
 require __DIR__ . '/auth.php';

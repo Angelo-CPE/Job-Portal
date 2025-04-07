@@ -20,6 +20,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -47,5 +48,22 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function listings(){
         return $this->hasMany(Listing::class);
+    }
+
+    public function isAdmin(){
+        return $this->role === 'admin';
+    }
+
+    public function scopeFilter($query, array $filters){
+        if ($filters['search'] ?? false) {
+            $query->where(function($q){
+                $q->where('name', 'like', '%'.request('search').'%')
+                    ->orWhere('email', 'like', '%'.request('search').'%');
+            });
+        }
+
+        if ($filters['user_role'] ?? false) {
+            $query->where('role', request('user_role'));
+        }
     }
 }
