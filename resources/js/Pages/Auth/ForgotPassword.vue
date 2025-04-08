@@ -35,8 +35,8 @@ const submit= () =>{
 
         <form @submit.prevent="submit" class="space-y-6">
 
-            <InputField label="Email" type="email" icon="at" v-model="form.email"/>
-            <PrimaryBtn :disabled="form.processing">Send Password Reset Link</PrimaryBtn>
+            <InputField data-testid="forgotPasswordEmailInput" label="Email" type="email" icon="at" v-model="form.email"/>
+            <PrimaryBtn data-testid="forgotPasswordButton" :disabled="form.processing">Send Password Reset Link</PrimaryBtn>
 
         </form>
     </Container>

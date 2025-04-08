@@ -37,16 +37,16 @@ const submit= () =>{
 
         <form @submit.prevent="submit" class="space-y-6">
 
-            <InputField label="Name" icon="id-badge" v-model="form.name"/>
-            <InputField label="Email" type="email" icon="at" v-model="form.email"/>
-            <InputField label="Password" type="password" icon="key" v-model="form.password"/>
-            <InputField label="Confirm Password" type="password" icon="key" v-model="form.password_confirmation"/>
+            <InputField data-testid="registerNameInput" label="Name" icon="id-badge" v-model="form.name"/>
+            <InputField data-testid="registerEmailInput" label="Email" type="email" icon="at" v-model="form.email"/>
+            <InputField data-testid="registerPasswordInput" label="Password" type="password" icon="key" v-model="form.password"/>
+            <InputField data-testid="registerConfirmPasswordInput" label="Confirm Password" type="password" icon="key" v-model="form.password_confirmation"/>
 
             <p class="text-slate-500 text-sm dark:text-slate-400">
                 By creating an account, you agree to our Terms of Service and Privacy Policy.
             </p>
 
-            <PrimaryBtn :disabled="form.processing">Register</PrimaryBtn>
+            <PrimaryBtn data-testid="registerButton" :disabled="form.processing">Register</PrimaryBtn>
 
         </form>
     </Container>

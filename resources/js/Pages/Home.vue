@@ -52,6 +52,7 @@ const search=()=>{
         <div class="w-1/2">
             <form @submit.prevent="search">
                 <InputField
+                    data-testid="search"
                     type="search"
                     label=""
                     icon="magnifying-glass"

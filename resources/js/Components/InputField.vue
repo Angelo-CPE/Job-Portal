@@ -31,7 +31,7 @@ defineProps({
                     <i :class="`fa-solid fa-${icon}`"></i>
                 </span>
             </div>
-            <input 
+            <input
                 :type="type"
                 :name="label"
                 :placeholder="placeholder"

@@ -43,14 +43,14 @@ const submit= () =>{
 
         <form @submit.prevent="submit" class="space-y-6">
 
-            <InputField label="Email" type="email" icon="at" v-model="form.email"/>
-            <InputField label="Password" type="password" icon="key" v-model="form.password"/>
+            <InputField data-testid="emailInput" label="Email" type="email" icon="at" v-model="form.email"/>
+            <InputField data-testid="passwordInput" label="Password" type="password" icon="key" v-model="form.password"/>
             <div class="flex items-center justify-between">
-                <CheckBox name="remember" v-model="form.remember">Remember me</CheckBox>
-                <TextLink routeName="password.request" label="Forgot Password?"/>
+                <CheckBox data-testid="rememberMe" name="remember" v-model="form.remember">Remember me</CheckBox>
+                <TextLink data-testid="forgotPassword" routeName="password.request" label="Forgot Password?"/>
             </div>
 
-            <PrimaryBtn :disabled="form.processing">Login</PrimaryBtn>
+            <PrimaryBtn data-testid="loginButton" :disabled="form.processing">Login</PrimaryBtn>
 
         </form>
     </Container>
