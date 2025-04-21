@@ -23,8 +23,6 @@
             <p class="text-lg text-gray-700"><strong>Desired Salary:</strong> <span class="font-medium text-gray-900">₱{{ $salary }}</span></p>
             <p class="text-lg text-gray-700"><strong>Time:</strong> <span class="font-medium text-gray-900">{{ $time }}</span></p>
 
-            <p class="text-lg text-gray-700"><strong>Raw Resume Path:</strong> <span class="font-medium text-gray-900">{{ $resume }}</span></p>
-
             <p class="text-lg text-gray-700"><strong>Resume Link:</strong> 
                 <a href="{{ asset($resume) }}" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
                     View Resume
