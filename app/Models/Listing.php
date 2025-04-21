@@ -43,4 +43,9 @@ class Listing extends Model
             $query->where('approved', false);
         } 
     }
+
+    public function applications(){
+        return $this->hasMany(Application::class);
+    }
+
 }

@@ -1,6 +1,7 @@
 <script setup>
 import { router } from "@inertiajs/vue3";
 import Container from "../../Components/Container.vue";
+import PrimaryBtn from '../../Components/PrimaryBtn.vue';
 
 const props = defineProps({
     listing: Object,
@@ -80,7 +81,11 @@ const toggleApprove = () => {
                 </div>
 
                 <h3 class="font-bold text-2xl mb-4">{{ listing.title }}</h3>
-                <p>{{ listing.desc }}</p>
+                <p class="mb-4">{{ listing.desc }}</p>
+
+                <Link :href="route('listing.apply', listing.id)" class="bg-blue-600 px-4 py-2 rounded-md text-white">
+                    Apply
+                </Link>
             </div>
 
             <!-- Contact info -->
