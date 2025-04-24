@@ -12,8 +12,8 @@ const form = useForm({
     email: "",
     password: "",
     password_confirmation: "",
-    user_type: "", // added for user type selection
-    company_name: "", // Company-specific fields
+    user_type: "",
+    company_name: "",
     description: "",
     website: "",
     contact_number: "",
@@ -26,9 +26,9 @@ const submit = () => {
 };
 
 const toggleUserType = (type, event) => {
-    event.preventDefault(); // Prevent form submission when clicking the buttons
+    event.preventDefault();
     if (type === 'company') {
-        form.user_type = 'employer';  // Use 'employer' instead of 'company'
+        form.user_type = 'employer';
     } else {
         form.user_type = type;
     }

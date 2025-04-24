@@ -24,14 +24,13 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|lowercase|email|max:255|unique:users,email',
             'password' => 'required|confirmed|min:3',
-            'user_type' => 'required|in:applicant,employer', // Ensure correct values
+            'user_type' => 'required|in:applicant,employer',
             'company_name' => 'required_if:user_type,employer|max:255',
             'description' => 'required_if:user_type,employer|max:1000',
             'website' => 'nullable|url',
             'contact_number' => 'nullable|string|max:20',
         ]);
 
-        // Debugging: check what's being submitted
         // dd($credentials);
 
         // Check if email already exists
@@ -44,7 +43,7 @@ class RegisterController extends Controller
             'name' => $credentials['name'],
             'email' => $credentials['email'],
             'password' => bcrypt($credentials['password']),
-            'user_type' => $credentials['user_type'], // ✅ Store user_type here
+            'user_type' => $credentials['user_type'],
         ]);
 
         // Create company if user is an employer

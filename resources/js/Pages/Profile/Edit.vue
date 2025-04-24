@@ -18,7 +18,6 @@ const props = defineProps({
     <UpdateInfo :user="user" :status="status" />
     <UpdatePassword />
 
-    <!-- Ensure `user.role` exists and the condition is checked properly -->
     <UpdateCompany 
         v-if="user.user_type === 'employer'" 
         :company="company" 

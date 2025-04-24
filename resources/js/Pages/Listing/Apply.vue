@@ -63,7 +63,7 @@ const submit = () => {
                     
                     <!-- Sex dropdown -->
                     <div>
-                        <label for="sex" class="block font-medium mb-2 text-gray-700">Sex</label>
+                        <label for="sex" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Sex</label>
                         <select 
                             id="sex" 
                             v-model="form.sex" 
@@ -85,7 +85,7 @@ const submit = () => {
                     <InputField label="Email" v-model="form.email" />
 
                     <div>
-                        <label class="block font-medium mb-2 text-gray-700">Desired Salary</label>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300">Desired Salary</label>
                         <div class="relative">
                             <span class="absolute left-3 top-2.5 text-sm">₱</span>
                             <input 
@@ -99,7 +99,7 @@ const submit = () => {
                     </div>
 
                     <div>
-                        <label class="block font-medium mb-2 text-gray-700">Time</label>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300">Time</label>
                         <div class="space-y-2">
                             <label><input type="radio" value="Full Time" v-model="form.time" class="mr-2">Full Time</label><br>
                             <label><input type="radio" value="Part Time" v-model="form.time" class="mr-2">Part Time</label><br>
@@ -108,7 +108,7 @@ const submit = () => {
                     </div>
 
                     <div>
-                        <label class="block font-medium mb-2 text-gray-700">Upload Resume</label>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300">Upload Resume</label>
                         <input type="file" @change="handleResumeUpload" accept=".pdf,.docx" class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
                         <div v-if="form.errors.resume" class="text-red-500 text-sm">{{ form.errors.resume }}</div>
                     </div>
