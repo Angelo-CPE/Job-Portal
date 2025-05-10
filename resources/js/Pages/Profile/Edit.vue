@@ -1,17 +1,28 @@
 <script setup>
-import DeleteAccount from './Sections/DeleteAccount.vue';
-import UpdateInfo from './Sections/UpdateInfo.vue';
-import UpdatePassword from './Sections/UpdatePassword.vue';
+import { Head } from '@inertiajs/vue3'
+import DeleteAccount from './Sections/DeleteAccount.vue'
+import UpdateInfo from './Sections/UpdateInfo.vue'
+import UpdatePassword from './Sections/UpdatePassword.vue'
+import UpdateCompany from './Sections/UpdateCompany.vue'
 
-defineProps({
+const props = defineProps({
     user: Object,
-    status: String
+    status: String,
+    company: Object
 });
 </script>
 
 <template>
-    <Head title="Profile"/>
-    <UpdateInfo :user="user" :status="status"/>
-    <UpdatePassword/>
-    <DeleteAccount/>
+    <Head title="Profile" />
+
+    <UpdateInfo :user="user" :status="status" />
+    <UpdatePassword />
+
+    <UpdateCompany 
+        v-if="user.user_type === 'employer'" 
+        :company="company" 
+        :status="status" 
+    />
+
+    <DeleteAccount />
 </template>

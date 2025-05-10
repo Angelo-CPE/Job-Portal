@@ -86,9 +86,10 @@ class ListingController extends Controller implements HasMiddleware
         Gate::authorize('view', $listing);
 
         return Inertia::render('Listing/Show', [
-            'listing'=>$listing,
-            'user'=>$listing->user->only(['name', 'id']),
-            'canModify'=> Auth::user() ? Auth::user()->can('modify', $listing) : false
+            'listing' => $listing,
+            'user' => $listing->user->only(['name', 'id']),
+            'canModify' => Auth::user() ? Auth::user()->can('modify', $listing) : false,
+            'company' => $listing->user->company, // Added missing comma
         ]);
     }
 

@@ -15,6 +15,7 @@ class ProfileController extends Controller
         return Inertia::render('Profile/Edit', [
             'user' => $request->user(),
             'status' => session('status'),
+            'company' => $request->user()->company,
         ]);
     }
 
@@ -63,5 +64,29 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('home');
+    }
+
+    public function updateCompany(Request $request){
+        $request->validate([
+            'company_name' => 'required|string|max:255',
+            'description' => 'required|string|max:1000',
+            'website' => 'nullable|url',
+            'contact_number' => 'nullable|string|max:20',
+        ]);
+
+        $user = auth()->user();
+
+        if (!$user->company) {
+            abort(403, 'No company profile found.');
+        }
+
+        $user->company->update([
+            'company_name' => $request->company_name,
+            'description' => $request->description,
+            'website' => $request->website,
+            'contact_number' => $request->contact_number,
+        ]);
+
+        return back()->with('status', 'Company info updated.');
     }
 }
